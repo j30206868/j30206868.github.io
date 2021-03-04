@@ -1,77 +1,30 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>StackJS</title>
-	<link rel="stylesheet" type="text/css" href="css/application.css">
-	<script type="text/javascript" src="lib/stackjs.min.js"></script>
-	<script type="text/javascript" src="lib/jquery.min.js"></script>
-    <script type="text/javascript" src="lib/kinetic-v4.3.3-beta"></script>
-    <script type="text/javascript" src="lib/ReSzAnchrAndBLine.js"></script>
-    <script type="text/javascript" src="js/application.js"></script>
-    <script type="text/javascript" src="js/ShapeDecorator.js"></script>
-</head>
-<body>
-	<div id="FlowChartAll"></div>
-    <textarea id='TextEditor'  style="display:none; position:absolute; resize:none; overflow:hidden; background: rgba(255,255,255,0.8); outline:none; border:0px;" onBlur="LeaveTextEditor()">Hello World</textarea>
-    <script>
-	// 文字編輯器全域設定
-	$(document).ready(function(e) {
-        var TextOnFocus = 0;
-		
-		$(document).keydown(function(e){
-			
-			if(e.keyCode == 37){
-				LayerAll.setX(LayerAll.getX()+100);	
-			}else if(e.keyCode == 38){
-				LayerAll.setY(LayerAll.getY()+100);	
-			}else if(e.keyCode == 39){
-				LayerAll.setX(LayerAll.getX()-100);	
-			}else if(e.keyCode == 40){
-				LayerAll.setY(LayerAll.getY()-100);	
-			}
-			WindowBoard.correctLocation();
-			WindowBoard.moveToTop();
-			LayerAll.draw();
-			
-			console.log("\nLayer("+LayerAll.getX() + " , " + LayerAll.getY() +")");
-			console.log("\FlowChartAll("+FlowChartAll.getX()+" , "+FlowChartAll.getY()+")");
-			console.log("testShape2("+testShape2.group.getX()+" , "+testShape2.group.getY()+")");
-			console.log("Mouse("+moveEvent.pageX + " , " + moveEvent.pageY+")");
-		});
-		
-    });
-	function LeaveTextEditor(){
-		TextOnFocus = 0;
-	}	
-	
-	</script>                                  
-                                
-	<script type="text/javascript">	
-	//Stage若太大會非常lag
-		var FlowChartAll = new Kinetic.Stage({
-			container: 'FlowChartAll',
-			width:1350,
-			height:635
-		});
-		
-		var LayerAll = new Kinetic.Layer({
-			id: 'LayerAll'
-		});
-		
-		FlowChartAll.add(LayerAll);
-
-		var WindowBoard = new WindowBoard(LayerAll);
-		
-		var testShape1 = new FShape("triangle", 100, 100, 190, 190, LayerAll);
-		var testShape2 = new FShape("rectangle", 300, 300, 250, 100, LayerAll);		
-
-		WindowBoard.moveToTop();
-		WindowBoard.addModel(testShape1.shape.clone());
-		WindowBoard.addModel(testShape2.shape.clone());
-		WindowBoard.arrangeShapes();
-
-	</script>
-</body>
+	<head>
+		<title>Hank Quinlan, Horrible Cop</title>
+		<!-- link to main stylesheet -->
+		<link rel="stylesheet" type="text/css" href="/css/main.css">
+	</head>
+	<body>
+		<nav>
+    		<ul>
+        		<li><a href="/">Home</a></li>
+	        	<li><a href="/about">About</a></li>
+        		<li><a href="/cv">CV</a></li>
+        		<li><a href="/blog">Blog</a></li>
+    		</ul>
+		</nav>
+		<div class="container">
+    		<div class="blurb">
+        		<h1>Hi there, I'm Hank Quinlan!</h1>
+				<p>I'm best known as the horrible cop from <em>A Touch of Evil</em> Don't trust me. <a href="/about">Read more about my life...</a></p>
+    		</div><!-- /.blurb -->
+		</div><!-- /.container -->
+		<footer>
+    		<ul>
+        		<li><a href="mailto:hankquinlanhub@gmail.com">email</a></li>
+        		<li><a href="https://github.com/hankquinlan">github.com/hankquinlan</a></li>
+			</ul>
+		</footer>
+	</body>
 </html>
